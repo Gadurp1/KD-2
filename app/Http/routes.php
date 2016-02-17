@@ -28,6 +28,9 @@ Route::get("/", function(){
 //  Blog Routes
 Route::get('post', 'PostController@index');
 Route::get('admin/post', 'PostController@index');
+Route::get('photos', 'ImageController@index');
+Route::get('photos/{id}', 'ImageController@show');
+
 route:get('api/coupons', function()
 {
   $posts=\App\Post::where('status','publish')->latest()->get();
@@ -53,7 +56,7 @@ Route::get('home', 'AdminController@index');
 $router->group([
   'middleware' => 'auth',
 ], function () {
-
+  resource('admin/images',  'ImageController');
   resource('admin/post',  'PostController');
   resource('admin/Banners', 'BannerController');
   resource('admin/pages', 'PagesController');

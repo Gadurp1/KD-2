@@ -62,7 +62,7 @@
 </style>
 <div class="jumbotron">
   <div class="container text-center">
-    <h1>#CatStash</h1>
+    <h1>#Gifs</h1>
     <div class="container row">
       <input type="text" class="form-control" placeholder="Search The Internet #1 resource for cat stuffs. According to noone">
     </div>
@@ -70,45 +70,21 @@
 </div>
 <div class="section section-big">
   <div class="container">
+    @foreach($photos as $photo)
     <div id="hover-cap-4col">
       <div class="col-md-4 small ">
         <div class="thumbnail">
           <div class="caption">
             <div class="caption-inner">
-              <h4>Caption Title</h4>
-              <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt.</p>
-              <a role="button" class="btn btn-danger">Details</a>
+              <h4>{{$photo->name}}</h4>
+              <a role="button" href="{{url('photos/'.$photo->id.'')}}" class="btn btn-danger">Details</a>
             </div>
           </div>
-          <img src="http://lorempixel.com/600/400/city/3">
+          <img src="{{$photo->url}}">
         </div>
     </div>
-    <div id="hover-cap-4col">
-      <div class="col-md-4 small ">
-        <div class="thumbnail">
-          <div class="caption">
-            <div class="caption-inner">
-              <h4>Caption Title</h4>
-              <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt.</p>
-              <a role="button" class="btn btn-danger">Details</a>
-            </div>
-          </div>
-          <img src="http://lorempixel.com/600/400/city/3">
-        </div>
-    </div>
-    <div id="hover-cap-4col">
-      <div class="col-md-4 small ">
-        <div class="thumbnail">
-          <div class="caption">
-            <div class="caption-inner">
-              <h4>Caption Title</h4>
-              <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt.</p>
-              <a role="button" class="btn btn-danger">Details</a>
-            </div>
-          </div>
-          <img src="http://lorempixel.com/600/400/city/3">
-        </div>
-    </div>
+    @endforeach
+
   </div>
     <div id="hover-cap-4col">
       <div class="col-md-4 small ">

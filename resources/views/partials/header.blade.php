@@ -9,7 +9,7 @@
       </button>
       <a class="navbar-brand" href="{{ url('')}}">
         <img style="height:25px" src="http://www.iconarchive.com/download/i78687/iconka/meow-2/cat-hungry.ico"></img>
-        <strong>CATSTASH</strong>
+        <strong>#CATSTASH</strong>
       </a>
     </div>
     <!-- Collect the nav links, forms, and other content for toggling -->
@@ -17,11 +17,11 @@
       <ul class="nav navbar-nav navbar-right">
         <li><a href="{{ url('post')}}"><i class="fa fa-star" style="color:gold"></i> Featured </a></li>
 
-        <li class="dropdown">
+        <li class="dropdown ">
               <a href="" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
                 Memes
                 <span class="caret"></span></a>
-              <ul class="dropdown-menu">
+              <ul class="dropdown-menu dropdown-default">
                 <li><a href="{{ url('/pages/Coupon-Consulting')}}">Coupon Consulting</a></li>
                 <li><a href="{{ url('/pages/Coupon-Administration')}}">Coupon Administration</a></li>
                 <li><a href="{{ url('/pages/Secondary-Market-Maker')}}">Market Making</a></li>
