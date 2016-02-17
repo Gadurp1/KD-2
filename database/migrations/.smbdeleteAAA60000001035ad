@@ -1,0 +1,32 @@
+<?php
+
+use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Database\Migrations\Migration;
+
+class RenameCouponsColumns extends Migration
+{
+    /**
+     * Run the migrations.
+     *
+     * @return void
+     */
+    public function up()
+    {
+        Schema::table('coupons', function (Blueprint $table) {
+          $table->renameColumn('case-type','case_type')->nullable();
+          $table->renameColumn('case-number','case_number')->nullable();
+          $table->renameColumn('case-status','case_status')->nullable();
+        });
+    }
+
+    /**
+     * Reverse the migrations.
+     *php artisan migrate
+
+     * @return void
+     */
+    public function down()
+    {
+
+    }
+}
