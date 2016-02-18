@@ -7,7 +7,7 @@ use App\Image;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 use Goutte\Client;
-
+use DB;
 class ImageController extends Controller
 {
     /**
@@ -17,16 +17,8 @@ class ImageController extends Controller
      */
     public function index()
     {
-        //
-        //$photos=Image::paginate(50);
-        $client = new Client();
-        $baseURL = 'https://www.tumblr.com';
-        $urlEndpoint = '/search/cat+gifs';
-        $crawler = $client->request('GET', $baseURL . $urlEndpoint);
-        $photos = $crawler->filter('img.photo')->extract(array('src','data-pin-url'));
-        return view('images.index')
-            ->with('photos',$photos);
-
+      $photos=Image::latest()->simplePaginate(9);
+      return view('images.index',compact('photos'));
     }
 
     /**
@@ -38,6 +30,29 @@ class ImageController extends Controller
     {
         //
         return view('images.create');
+    }
+    /**
+     * Show the form for creating a new resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function scrape()
+    {
+      for($i=2;$i<=3;$i++){
+        //$photos=Image::paginate(50);
+        $client = new Client();
+        $baseURL = 'http://www.cat-gifs.com/page';
+        $urlEndpoint = '/'.$i++;
+        $crawler = $client->request('GET', $baseURL . $urlEndpoint);
+        $photos = $crawler->filter('img.size-full')->extract(array('src','title','alt'));
+          foreach($photos as $photo){
+            $image=new \App\Image();
+            $image->name=$photo[1];
+            $image->url=$photo[0];
+            $image->description=$photo[2];
+            $images->save();
+         }
+      }
     }
 
     /**

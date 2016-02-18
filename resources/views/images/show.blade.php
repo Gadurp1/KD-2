@@ -21,11 +21,8 @@ background:url('http://www.europur.org/images/slideshow/europur_polyurethane_foa
     <div class="container container-int">
       <div class="row ">
         <!-- Main Post Body -->
-
-
         <div class="col-sm-8">
             <article class="panel panel-body" itemscope itemtype="http://schema.org/NewsArticle">
-
               <meta itemscope itemprop="mainEntityOfPage"  itemType="https://schema.org/WebPage" itemid="https://google.com/article"/>
               <h1 itemprop="headline"><strong>{{$photo->name}}</strong></h1>
               <span  class="hidden" itemprop="publisher" itemscope itemtype="https://schema.org/Organization">Certificate Clearing Corporation</span>
@@ -37,7 +34,7 @@ background:url('http://www.europur.org/images/slideshow/europur_polyurethane_foa
             </p>
 
               <p class="">{{$photo->description}}</p>
-              <img class="img-responsive col-md-12" src="{{$photo->url}}" alt="" />
+              <img class="img-responsive col-md-12" src="{{asset('uploads/'.$photo->url.'')}}" alt="" />
 
             </article>
 
@@ -45,7 +42,7 @@ background:url('http://www.europur.org/images/slideshow/europur_polyurethane_foa
             <div id="disqus_thread"></div>
         </div>
         @if(Auth::user())
-          <a class="btn btn-circle col-md-12 btn btn-danger btn-lg btn-right" href="{{url('admin/post/'.$photo->slug.'/edit') }}">
+          <a class="btn btn-circle col-md-12 btn btn-danger btn-lg btn-right" href="{{url('admin/photo/'.$photo->id.'/edit') }}">
           <i class="fa fa-edit" style="font-size:24px"></i>
           </a>
         @endif

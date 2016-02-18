@@ -1,4 +1,7 @@
 @extends('app') @section('content')
+<script type="text/javascript" src="https://cdn.jsdelivr.net/jquery.jscroll/2.2.4/jquery.jscroll.min.js">
+
+</script>
 <style>
   .jumbotron-img {
     background: rgb(0, 0, 0);
@@ -70,68 +73,41 @@
 </div>
 <div class="section section-big">
   <div class="container">
+
+<div class="row">
+  <div class="scroller">
+
     @foreach($photos as $photo)
     <div id="hover-cap-4col">
       <div class="col-md-4 small ">
         <div class="thumbnail">
           <div class="caption">
             <div class="caption-inner">
-              <p>Som Awesom Captin</p>
-              <a role="button" href="{{$photo[0]}}" class="btn btn-danger">Details</a>
+              <p class="lead" style="margin-top:25px">{{$photo->description}}</p>
+              <a role="button" href="{{url('Cat-Gifs/'.$photo->id.'')}}" class="btn btn-danger">Details</a>
             </div>
           </div>
-          <img style="height:250px;border-radius:5px" src="{{$photo[0]}}">
+          <img style="height:250px;border-radius:5px" src="{{asset('uploads/'.$photo->url.'')}}">
         </div>
     </div>
     @endforeach
-
-  </div>
-    <div id="hover-cap-4col">
-      <div class="col-md-4 small ">
-        <div class="thumbnail">
-          <div class="caption">
-            <div class="caption-inner">
-              <h4>Caption Title</h4>
-              <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt.</p>
-              <a role="button" class="btn btn-danger">Details</a>
-            </div>
-          </div>
-          <img src="http://lorempixel.com/600/400/city/3">
-        </div>
-    </div>
-    <div id="hover-cap-4col">
-      <div class="col-md-4 small ">
-        <div class="thumbnail">
-          <div class="caption">
-            <div class="caption-inner">
-              <h4>Caption Title</h4>
-              <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt.</p>
-              <a role="button" class="btn btn-danger">Details</a>
-            </div>
-          </div>
-          <img src="http://lorempixel.com/600/400/city/3">
-        </div>
-    </div>
-    <div id="hover-cap-4col">
-      <div class="col-md-4 small ">
-        <div class="thumbnail">
-          <div class="caption">
-            <div class="caption-inner">
-              <h4>Caption Title</h4>
-              <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt.</p>
-              <a role="button" class="btn btn-danger">Details</a>
-            </div>
-          </div>
-          <img src="http://lorempixel.com/600/400/city/3">
-        </div>
-    </div>
-  </div>
-
+  </div>  </div>
 </div>
 </div>
-
 </div>
 <!-- /.section-colored -->
+</div>
+</div>
+</div></div>
+</div></div>
+
+</div>
+</hr>
+<hr>
+<br
+<div class="row">
+  {!! str_replace('/?', '?', $photos->render()) !!}
+
 
 </div>
 <!-- /.section -->
@@ -156,4 +132,27 @@
   <i class="fa fa-edit" style="font-size:24px"></i>
   </a>
   @endif
+  <script>
+    $(document).ready(function(){
+
+        //hides the default paginator
+        $('ul.pager:visible:first').hide();
+
+        //init jscroll and tell it a few key configuration details
+        //contentSelector - this is the element wrapper which is cloned and appended with new paginated data
+        $('div.scroller').jscroll({
+            debug: true,
+            autoTrigger: true,
+            nextSelector: {{$photos->nextPageUrl()}},
+            contentSelector: 'div.scroller',
+            callback: function() {
+
+                //again hide the paginator from view
+                $('ul.pager:visible:first').hide();
+
+            }
+        });
+    });
+</script>
+
 @stop

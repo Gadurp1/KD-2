@@ -17,12 +17,14 @@ class AdminController extends Controller
     $coupons = \App\Coupons::count();
     $posts =\App\Post::count();
     $users =\App\User::count();
+    $images =\App\Image::count();
     return view('home')
         ->with('pages',$pages)
         ->with('banners',$banners)
         ->with('coupons',$coupons)
         ->with('posts',$posts)
-        ->with('users',$users);
+        ->with('users',$users)
+        ->with('images',$images);
   }
 
 }

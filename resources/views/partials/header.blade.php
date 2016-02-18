@@ -27,7 +27,7 @@
                 <li><a href="{{ url('/pages/Secondary-Market-Maker')}}">Market Making</a></li>
               </ul>
         </li>
-        <li><a href="{{ url('cases')}}">Top GIFS</a></li>
+        <li><a href="{{ url('Cat-Gifs')}}">Top GIFS</a></li>
 
         @if (Auth::check())
 
