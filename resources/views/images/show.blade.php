@@ -21,28 +21,9 @@ background:url('http://www.europur.org/images/slideshow/europur_polyurethane_foa
     <div class="container container-int">
       <div class="row ">
         <!-- Main Post Body -->
-        <img class="col-md-8 img-responsive" src="{{$photo->url}}" alt="" />
-        <!-- Recent Posts Sidebar -->
-          <div class="col-md-4" >
-            <div class="panel panel-body">
-              <p class="lead"><i class="fa fa-share"></i> Share This Image</p>
-              <div class="input-group">
-                <span class="input-group-addon"></span>
-                <input type="text" class="form-control" placeholder="" value="{{$photo->url}}">
-              </div>
-              <div class="input-group">
-                <span class="input-group-addon"></span>
-                <input type="text" class="form-control" placeholder="" value="{{$photo->url}}">
-              </div>
-              <div class="input-group">
-                <span class="input-group-addon"></span>
-                <input type="text" class="form-control" placeholder="" value="{{$photo->url}}">
-              </div>
-          </div>
-        </div>
-      </div>
-        <div class="col-sm-8">
 
+
+        <div class="col-sm-8">
             <article class="panel panel-body" itemscope itemtype="http://schema.org/NewsArticle">
 
               <meta itemscope itemprop="mainEntityOfPage"  itemType="https://schema.org/WebPage" itemid="https://google.com/article"/>
@@ -54,8 +35,12 @@ background:url('http://www.europur.org/images/slideshow/europur_polyurethane_foa
                {{ date('D M d, Y',strtotime($photo->created_at)) }}
              </meta>
             </p>
+
               <p class="">{{$photo->description}}</p>
+              <img class="img-responsive col-md-12" src="{{$photo->url}}" alt="" />
+
             </article>
+
             <hr>
             <div id="disqus_thread"></div>
         </div>
@@ -70,5 +55,23 @@ background:url('http://www.europur.org/images/slideshow/europur_polyurethane_foa
       </script>
       <noscript>Please enable JavaScript to view the </noscript>
       <script id="dsq-count-scr" src="//certificateclearing.disqus.com/count.js" async></script>
-
+      <!-- Recent Posts Sidebar -->
+        <div class="col-md-4" >
+          <div class="panel panel-body">
+            <p class="lead"><i class="fa fa-share"></i> Share This Image</p>
+            <div class="input-group">
+              <span class="input-group-addon"></span>
+              <input type="text" class="form-control" placeholder="" value="{{$photo->url}}">
+            </div>
+            <div class="input-group">
+              <span class="input-group-addon"></span>
+              <input type="text" class="form-control" placeholder="" value="{{$photo->url}}">
+            </div>
+            <div class="input-group">
+              <span class="input-group-addon"></span>
+              <input type="text" class="form-control" placeholder="" value="{{$photo->url}}">
+            </div>
+        </div>
+    </div>
+  </div>
 @stop

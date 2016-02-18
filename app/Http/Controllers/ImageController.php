@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Image;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
+use Goutte\Client;
 
 class ImageController extends Controller
 {
@@ -17,7 +18,12 @@ class ImageController extends Controller
     public function index()
     {
         //
-        $photos=Image::paginate(50);
+        //$photos=Image::paginate(50);
+        $client = new Client();
+        $baseURL = 'https://www.tumblr.com';
+        $urlEndpoint = '/search/cat+gifs';
+        $crawler = $client->request('GET', $baseURL . $urlEndpoint);
+        $photos = $crawler->filter('img.photo')->extract(array('src','data-pin-url'));
         return view('images.index')
             ->with('photos',$photos);
 
@@ -32,7 +38,6 @@ class ImageController extends Controller
     {
         //
         return view('images.create');
-
     }
 
     /**
@@ -50,12 +55,11 @@ class ImageController extends Controller
       $image->user_id=1;
       $image->url=$request->input('url');
       $image->description=$request->input('description');
-
       $image->save();
       // Set Flash Message
       session()->flash('flash_message','New Post Has Been Created!');
       // Redirect to new banner page
-      return redirect('images/');
+      return redirect('admin/photos');
     }
 
     /**

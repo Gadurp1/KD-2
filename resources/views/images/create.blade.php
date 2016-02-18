@@ -7,7 +7,7 @@
   <h1>New Image</h1>
   <hr>
   <!-- <div id="summernote">Hello Summernote</div> -->
-  {!! Form::open(['url' => 'admin/images']) !!}
+  {!! Form::open(['url' => 'admin/photos']) !!}
     <div class="form-group">
       {!! Form::label('name', 'Title:') !!}
       {!! Form::text('name', null, ['class' => 'form-control']) !!}

@@ -28,8 +28,8 @@ Route::get("/", function(){
 //  Blog Routes
 Route::get('post', 'PostController@index');
 Route::get('admin/post', 'PostController@index');
-Route::get('photos', 'ImageController@index');
-Route::get('photos/{id}', 'ImageController@show');
+Route::get('Cat-Gifs', 'ImageController@index');
+Route::get('Cat-Gifs/{id}', 'ImageController@show');
 
 route:get('api/coupons', function()
 {
@@ -56,7 +56,7 @@ Route::get('home', 'AdminController@index');
 $router->group([
   'middleware' => 'auth',
 ], function () {
-  resource('admin/images',  'ImageController');
+  resource('admin/photos',  'ImageController');
   resource('admin/post',  'PostController');
   resource('admin/Banners', 'BannerController');
   resource('admin/pages', 'PagesController');

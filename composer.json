@@ -9,7 +9,8 @@
         "laravel/framework": "5.1.*",
         "illuminate/html": "^5.0",
         "doctrine/dbal": "^2.5",
-        "regulus/activity-log": "0.5.*"
+        "regulus/activity-log": "0.5.*",
+        "fabpot/goutte": "^3.1"
 
     },
     "require-dev": {
