@@ -1,6 +1,7 @@
 <?php
 
 namespace App;
+use Nicolaslopezj\Searchable\SearchableTrait;
 
 use Illuminate\Database\Eloquent\Model;
 // More appropriate name for this class is probably case
@@ -15,6 +16,20 @@ use Illuminate\Database\Eloquent\Model;
 
 class Image extends Model
 {
+  use SearchableTrait;
+
+  /**
+   * Searchable rules.
+   *
+   * @var array
+   */
+  protected $searchable = [
+      'columns' => [
+        'name' => 10,
+        'description' => 3,
+      ],
+
+  ];
     //
     protected $fillable =
     [

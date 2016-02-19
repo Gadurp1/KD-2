@@ -65,10 +65,15 @@
 </style>
 <div class="jumbotron">
   <div class="container text-center">
-    <h1>#Gifs</h1>
+    <h1><strong>#{{$search_term}}</strong> Cat Gifs</h1>
     <div class="container row">
-      <input type="text" class="form-control" placeholder="Search The Internet #1 resource for cat stuffs. According to noone">
-    </div>
+      <!-- <div id="summernote">Hello Summernote</div> -->
+      {!! Form::open(['method' => 'GET','url' => 'Cat-Gifs','class' => 'search-bar']) !!}
+        <div class="form-group">
+          {!! Form::label('name', 'Title:') !!}
+          {!! Form::text('name', null, ['class' => 'form-control']) !!}
+        </div>
+        {!!Form::close()!!}
   </div>
 </div>
 <div class="section section-big">

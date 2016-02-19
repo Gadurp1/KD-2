@@ -70,93 +70,30 @@
 </div>
 <div class="section section-big">
   <div class="container">
-    <div id="hover-cap-4col">
-      <div class="col-md-4 small ">
-        <div class="thumbnail">
-          <div class="caption">
-            <div class="caption-inner">
-              <h4>Caption Title</h4>
-              <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt.</p>
-              <a role="button" class="btn btn-danger">Details</a>
+        @foreach($photos as $photo)
+        <div id="hover-cap-4col">
+          <div class="col-md-4 small ">
+            <div class="thumbnail">
+              <div class="caption">
+                <div class="caption-inner">
+                  <p class="lead" style="margin-top:25px">{{$photo->description}}</p>
+                  <a role="button" href="{{url('Cat-Gifs/'.$photo->id.'')}}" class="btn btn-danger">Details</a>
+                </div>
+              </div>
+              <img style="height:250px;border-radius:5px" src="{{asset('uploads/'.$photo->url.'')}}">
             </div>
-          </div>
-          <img src="http://lorempixel.com/600/400/city/3">
         </div>
-    </div>
-    <div id="hover-cap-4col">
-      <div class="col-md-4 small ">
-        <div class="thumbnail">
-          <div class="caption">
-            <div class="caption-inner">
-              <h4>Caption Title</h4>
-              <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt.</p>
-              <a role="button" class="btn btn-danger">Details</a>
-            </div>
-          </div>
-          <img src="http://lorempixel.com/600/400/city/3">
-        </div>
-    </div>
-    <div id="hover-cap-4col">
-      <div class="col-md-4 small ">
-        <div class="thumbnail">
-          <div class="caption">
-            <div class="caption-inner">
-              <h4>Caption Title</h4>
-              <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt.</p>
-              <a role="button" class="btn btn-danger">Details</a>
-            </div>
-          </div>
-          <img src="http://lorempixel.com/600/400/city/3">
-        </div>
-    </div>
+        @endforeach
   </div>
-    <div id="hover-cap-4col">
-      <div class="col-md-4 small ">
-        <div class="thumbnail">
-          <div class="caption">
-            <div class="caption-inner">
-              <h4>Caption Title</h4>
-              <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt.</p>
-              <a role="button" class="btn btn-danger">Details</a>
-            </div>
-          </div>
-          <img src="http://lorempixel.com/600/400/city/3">
-        </div>
-    </div>
-    <div id="hover-cap-4col">
-      <div class="col-md-4 small ">
-        <div class="thumbnail">
-          <div class="caption">
-            <div class="caption-inner">
-              <h4>Caption Title</h4>
-              <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt.</p>
-              <a role="button" class="btn btn-danger">Details</a>
-            </div>
-          </div>
-          <img src="http://lorempixel.com/600/400/city/3">
-        </div>
-    </div>
-    <div id="hover-cap-4col">
-      <div class="col-md-4 small ">
-        <div class="thumbnail">
-          <div class="caption">
-            <div class="caption-inner">
-              <h4>Caption Title</h4>
-              <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt.</p>
-              <a role="button" class="btn btn-danger">Details</a>
-            </div>
-          </div>
-          <img src="http://lorempixel.com/600/400/city/3">
-        </div>
-    </div>
-  </div>
-
-</div>
-</div>
-
 </div>
 <!-- /.section-colored -->
+<hr>
+<br
+<div class="row">
+  {!! str_replace('/?', '?', $photos->render()) !!}
 
+
+</div>
 </div>
 <!-- /.section -->
 <script type="text/javascript">

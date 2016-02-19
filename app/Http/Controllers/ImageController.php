@@ -1,24 +1,28 @@
 <?php
 
 namespace App\Http\Controllers;
-
 use Illuminate\Http\Request;
 use App\Image;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 use Goutte\Client;
 use DB;
+use Input;
 class ImageController extends Controller
 {
+
     /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-      $photos=Image::latest()->simplePaginate(9);
-      return view('images.index',compact('photos'));
+
+      $search_term=$request->input('name');
+      $photos=Image::search($search_term)->latest()->simplePaginate(9);
+      return view('images.index',compact('photos'))
+          ->with('search_term', $search_term);
     }
 
     /**

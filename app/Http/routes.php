@@ -17,7 +17,9 @@ Route::post('contact',
   ['as' => 'contact_store', 'uses' => 'AboutController@store']);
 // Main index route
 Route::get("/", function(){
-  return view('pages.index');
+  $photos=\App\Image::latest()->simplePaginate(9);
+  return view('images.index',compact('photos'));
+
 });
 
 /*
