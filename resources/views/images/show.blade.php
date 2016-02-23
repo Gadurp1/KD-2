@@ -22,24 +22,27 @@ background:url('http://www.europur.org/images/slideshow/europur_polyurethane_foa
       <div class="row ">
         <!-- Main Post Body -->
         <div class="col-sm-8">
-            <article class="panel panel-body" itemscope itemtype="http://schema.org/NewsArticle">
-              <meta itemscope itemprop="mainEntityOfPage"  itemType="https://schema.org/WebPage" itemid="https://google.com/article"/>
-              <h1 itemprop="headline"><strong>{{$photo->name}}</strong></h1>
-              <span  class="hidden" itemprop="publisher" itemscope itemtype="https://schema.org/Organization">Certificate Clearing Corporation</span>
-            <p >
-              <i class="fa fa-calendar"></i>
-              <meta itemprop="datePublished">
-               {{ date('D M d, Y',strtotime($photo->created_at)) }}
-             </meta>
-            </p>
+          <h1 itemprop="headline" style="font-size:24px;font-weight:400">{{$photo->description}}</h1>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-sm-8">
+          <article class="" itemscope itemtype="http://schema.org/NewsArticle">
+            <meta itemscope itemprop="mainEntityOfPage"  itemType="https://schema.org/WebPage" itemid="https://google.com/article"/>
+            <span  class="hidden" itemprop="publisher" itemscope itemtype="https://schema.org/Organization">Certificate Clearing Corporation</span>
+            <div class="row">
+              <img class="img-responsive col-md-12" style="border-radius:10px;" alt="{{$photo->name}}" src="{{asset('uploads/'.$photo->url.'')}}" alt="" />
+            </div>
+          </article>
+          <p class="hidden">
+            <i class="fa fa-calendar"></i>
+            <meta itemprop="datePublished">
+             {{ date('D M d, Y',strtotime($photo->created_at)) }}
+           </meta>
+          </p>
+          <hr>
 
-              <p class="">{{$photo->description}}</p>
-              <img class="img-responsive col-md-12" src="{{asset('uploads/'.$photo->url.'')}}" alt="" />
-
-            </article>
-
-            <hr>
-            <div id="disqus_thread"></div>
+        <div id="disqus_thread"></div>
         </div>
         @if(Auth::user())
           <a class="btn btn-circle col-md-12 btn btn-danger btn-lg btn-right" href="{{url('admin/photo/'.$photo->id.'/edit') }}">

@@ -17,9 +17,11 @@ Route::post('contact',
   ['as' => 'contact_store', 'uses' => 'AboutController@store']);
 // Main index route
 Route::get("/", function(){
-  $photos=\App\Image::latest()->simplePaginate(9);
-  return view('images.index',compact('photos'));
-
+  return view('pages.index');
+});
+Route::get("theatre", function(){
+  $photo=\App\Image::latest()->take(1)->lists('url');
+  return view('images.theatre')->with('photo',$photo);
 });
 
 /*

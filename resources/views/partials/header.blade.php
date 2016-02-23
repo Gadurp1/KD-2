@@ -1,4 +1,4 @@
-<nav class="navbar navbar-fixed-top navbar-default" role="navigation" style="border-bottom:2px solid #ccc">
+<nav class="navbar navbar-fixed-top navbar-default" role="navigation" style="border-bottom:2px solid #eeeeee;background:#fff">
   <div class="container">
     <div class="navbar-header">
       <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
@@ -8,27 +8,18 @@
         <span class="icon-bar"></span>
       </button>
       <a class="navbar-brand" href="{{ url('')}}">
-        <img style="height:25px" src="http://www.iconarchive.com/download/i78687/iconka/meow-2/cat-hungry.ico"></img>
-        <strong>#CATSTASH</strong>
+
+        <strong style="color:#ce2155;sont-weight:800"><img style="height:25px" src="http://www.iconarchive.com/download/i78687/iconka/meow-2/cat-hungry.ico"></img> STASH</strong>
       </a>
     </div>
     <!-- Collect the nav links, forms, and other content for toggling -->
     <div class="collapse navbar-collapse navbar-ex1-collapse">
-      <ul class="nav navbar-nav navbar-right">
-        <li><a href="{{ url('post')}}"><i class="fa fa-star" style="color:gold"></i> Featured </a></li>
+      <ul class="nav navbar-nav navbar-left">
+        <li class="active"><a href="{{ url('post')}}"><i class="fa fa-star" style="color:gold"></i> <strong>Featured</strong> </a></li>
 
-        <li class="dropdown ">
-              <a href="" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
-                Memes
-                <span class="caret"></span></a>
-              <ul class="dropdown-menu dropdown-default">
-                <li><a href="{{ url('/pages/Coupon-Consulting')}}">Coupon Consulting</a></li>
-                <li><a href="{{ url('/pages/Coupon-Administration')}}">Coupon Administration</a></li>
-                <li><a href="{{ url('/pages/Secondary-Market-Maker')}}">Market Making</a></li>
-              </ul>
-        </li>
-        <li><a href="{{ url('Cat-Gifs')}}">Top GIFS</a></li>
-
+        <li><a href="{{ url('Cat-Gifs')}}"><i class="fa fa-megaphone"></i> <strong>Gifs</strong></a></li>
+    </ul>
+    <ul class="nav navbar-nav navbar-right">
         @if (Auth::check())
 
         <li class="dropdown">
@@ -45,6 +36,7 @@
                 <li><a href="{{ url('auth/logout')}}">Logout</a></li>
               </ul>
         </li>
+
         @else
         <li><a href="{{ url('auth/login')}}"><i class="fa fa-lock"> Login</i></a>
 

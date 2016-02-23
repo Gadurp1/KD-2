@@ -63,19 +63,7 @@
     background: #fdf;
   }
 </style>
-<div class="jumbotron">
-  <div class="container text-center">
-    <h1><strong>#{{$search_term}}</strong> Cat Gifs</h1>
-    <div class="container row">
-      <!-- <div id="summernote">Hello Summernote</div> -->
-      {!! Form::open(['method' => 'GET','url' => 'Cat-Gifs','class' => 'search-bar']) !!}
-        <div class="form-group">
-          {!! Form::label('name', 'Title:') !!}
-          {!! Form::text('name', null, ['class' => 'form-control']) !!}
-        </div>
-        {!!Form::close()!!}
-  </div>
-</div>
+
 <div class="section section-big">
   <div class="container">
 
@@ -84,7 +72,7 @@
 
     @foreach($photos as $photo)
     <div id="hover-cap-4col">
-      <div class="col-md-4 small ">
+      <div class="col-md-4 small">
         <div class="thumbnail">
           <div class="caption">
             <div class="caption-inner">
@@ -92,7 +80,7 @@
               <a role="button" href="{{url('Cat-Gifs/'.$photo->id.'')}}" class="btn btn-danger">Details</a>
             </div>
           </div>
-          <img style="height:250px;border-radius:5px" src="{{asset('uploads/'.$photo->url.'')}}">
+          <img style="height:175px;width:100%;border-radius:5px" src="{{asset('uploads/'.$photo->url.'')}}">
         </div>
     </div>
     @endforeach

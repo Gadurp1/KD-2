@@ -15,7 +15,7 @@
       });
     </script>
   </head>
-  <body style="background:#f8f8f8">
+  <body >
     <!--  Main Site Navigation Bar -->
     @include('partials.header')
     <!-- Errors and Session Alerts -->
@@ -31,7 +31,7 @@
       </script>
     @endif
     <!--  Main Site Content-->
-    <div>
+    <div style="background:#fafafa">
       @yield('content')
     </div>
     <!-- Site Footer -->

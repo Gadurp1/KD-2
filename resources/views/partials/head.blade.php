@@ -12,9 +12,7 @@
 <link href="{{ asset('theme/css/font-awesome-ie7.css')}}" rel="stylesheet">
 <![endif]-->
 <!-- Bootstrap core CSS -->
-<link href="{{ asset('theme/css/main.css') }}" rel="stylesheet">
 <link href="{{ asset('theme/css/bootstrap.css') }}" rel="stylesheet">
-<link href="{{ asset('css/summernote.css') }}" rel="stylesheet">
 <link href="{{ asset('summernote.min.js') }}" rel="stylesheet">
 <!-- custom CSS -->
 <link href="{{ asset('theme/css/style.css') }}" rel="stylesheet">

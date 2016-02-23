@@ -8,6 +8,7 @@ use App\Http\Controllers\Controller;
 use Goutte\Client;
 use DB;
 use Input;
+
 class ImageController extends Controller
 {
 
@@ -18,11 +19,12 @@ class ImageController extends Controller
      */
     public function index(Request $request)
     {
-
+      $photo='dude';
       $search_term=$request->input('name');
-      $photos=Image::search($search_term)->latest()->simplePaginate(9);
+      $photos=Image::search($search_term)->latest()->simplePaginate(12);
       return view('images.index',compact('photos'))
-          ->with('search_term', $search_term);
+          ->with('search_term', $search_term)
+          ->with('photo', $photo);
     }
 
     /**

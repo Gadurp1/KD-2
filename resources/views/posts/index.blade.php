@@ -56,7 +56,7 @@
       <template id="tasks-template">
           <div class="row" v-for="task in list  | orderBy 'create_time'">
                 <div class="panel panel-body " style="border-left:2px solid #2090ac" >
-                  <img class="col-md-12 thumbnail img-responsive" src="https://placeholdit.imgix.net/~text?txtsize=33&txt=350%C3%97150&w=350&h=150" alt="" />
+                  <img class="col-md-12 thumbnail img-responsive" src="http://www.somepets.com/wp-content/uploads/2013/09/funny-cat11.jpg" alt="" />
                     <div class="caption">
                       <a class="" href="post/@{{ task.slug }}">
                         <h2 class="">@{{ task.title  }} <small class="hidden">@{{ task.settlement }}</small></h2>

@@ -1,100 +1,167 @@
 @extends('app') @section('content')
 <style>
-  .jumbotron-img {
-    background: rgb(0, 0, 0);
-    /* This is for ie8 and below */
-    background: rgba(0, 0, 0, 0.5);
-  }
+/*
+ * Globals
+ */
+body{
+  background:#fafafa
+}
+/* Links */
+a,
+a:focus,
+a:hover {
+  color: #fff;
+}
 
-  #hover-cap-4col .thumbnail {
-    position: relative;
-    overflow: hidden;
-    list-style: none;
-  }
+/* Custom default button */
+.btn-default,
+.btn-default:hover,
+.btn-default:focus {
+  color: #333;
+  background-color: #fff;
+  border: 1px solid #fff;
+}
 
-  .caption {
-    display: none;
-    position: absolute;
+input.form-control{
+  height:75px;
+  -webkit-box-shadow:  0 2px 3px rgba(0,0,0,.3);
+  box-shadow:  0 2px 3px rgba(0,0,0,.3);
+}
+
+input.form-control[type="text"] {
+  display: block;
+  margin: 0;
+  width: 100%;
+  font-weight: 900;
+  font-size: 18px;
+  appearance: none;
+  border-radius: none;
+}
+input.form-control[type="text"]:focus {
+  outline: none;
+  border:none;
+  -webkit-box-shadow:  0 2px 3px rgba(0,0,0,.3);
+  box-shadow:  0 2px 3px rgba(0,0,0,.3);
+}
+/* Extra markup and styles for table-esque vertical and horizontal centering */
+.site-wrapper {
+  display: table;
+  width: 100%;
+  height: 100%; /* For at least Firefox */
+  min-height: 100%;
+  background: url(https://media.giphy.com/media/kJ04xPBmQp9Ti/giphy.gif) no-repeat center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+
+}
+.site-wrapper-inner {
+margin-top:-100px;
+  display: table-cell;
+  vertical-align: top;
+  background:rgba(0, 0, 0, 0.8);
+
+}
+.cover-container {
+  margin-right: auto;
+  margin-left: auto;
+}
+
+/* Padding for spacing */
+.inner {
+positiion:absolute;
+bottom:0;
+}
+
+
+/*
+ * Cover
+ */
+
+.cover {margin-top:-100px;
+  padding: 0 20px;
+}
+.cover .btn-lg {
+  padding: 10px 20px;
+  font-weight: bold;
+}
+
+
+
+/*
+ * Affix and center
+ */
+
+@media (min-width: 768px) {
+  /* Pull out the header and footer */
+  .masthead {
+    position: fixed;
     top: 0;
-    left: 0;
+  }
+  .mastfoot {
+    position: fixed;
     bottom: 0;
-    background: rgba(0, 0, 0, 0.4);
-    width: 100%;
-    height: 100%;
-    color: #fff !important;
   }
+  /* Start the vertical centering */
+  .site-wrapper-inner {
+    vertical-align: middle;
+  }
+  /* Handle the widths */
+  .masthead,
+  .mastfoot,
+  .cover-container {
+    width: 100%; /* Must be percentage or pixels for horizontal alignment */
+  }
+}
 
-  .thumbnails,
-  .thumbnails ul {
-    list-style: none;
-    margin-top: -3px;
+@media (min-width: 992px) {
+  .masthead,
+  .mastfoot,
+  .cover-container {
+    width: 700px;
   }
-
-  .thumbnails ul,
-  .thumbnails {
-    padding: 0px;
-  }
-
-  .thumbnails div {
-    padding-right: 0px;
-    padding-left: 0px;
-  }
-
-  div.thumbnail {
-    margin-bottom: 0px;
-    border: none;
-    padding: 0px;
-    border-radius: 0px;
-  }
-
-  .small .thumbnail {
-    margin: 10px!important;
-  }
-
-  ul li ul {
-    margin-top: 10px;
-  }
-
-  .lead .thumbnail {
-    margin-bottom: 0px!important;
-    background: #fdf;
-  }
+}
+.btn-huge{
+  padding-top:15px;padding-bottom:15px;font-size:18px
+}
+h1{color:#fff;font-size:64px;font-weight:600;margin-bottom:10px}
 </style>
-<div class="jumbotron">
-  <div class="container text-center">
-    <h1>#CatStash</h1>
-    <div class="container row">
-      <input type="text" class="form-control" placeholder="Search The Internet #1 resource for cat stuffs. According to noone">
-    </div>
-  </div>
 </div>
-<div class="section section-big">
-  <div class="container">
-        @foreach($photos as $photo)
-        <div id="hover-cap-4col">
-          <div class="col-md-4 small ">
-            <div class="thumbnail">
-              <div class="caption">
-                <div class="caption-inner">
-                  <p class="lead" style="margin-top:25px">{{$photo->description}}</p>
-                  <a role="button" href="{{url('Cat-Gifs/'.$photo->id.'')}}" class="btn btn-danger">Details</a>
-                </div>
+</div>
+<div class="site-wrapper">
+
+      <div class="site-wrapper-inner">
+        <div class="cover-container">
+            <div class="row">
+              <div class="col-md-4">
+
               </div>
-              <img style="height:250px;border-radius:5px" src="{{asset('uploads/'.$photo->url.'')}}">
+              <h1 class="col-md-4 text-center"><strong>#CatStash</strong></h1>
+
             </div>
+
+            <div class=" row">
+              <!-- <div id="summernote">Hello Summernote</div> -->
+              {!! Form::open(['method' => 'GET','url' => 'Cat-Gifs','class' => 'search-bar']) !!}
+                <div class="form-group">
+                  {!! Form::text('name', null, ['class' => 'form-control','placeholder' => 'Search All Things Cat...']) !!}
+                </div>
+                {!!Form::close()!!}
+          </div>
+          <div class="row">
+            <a class="col-md-12 btn btn-lg btn-success btn-huge" height="50px">Search</a>
+          </div>
+
+          <div class="mastfoot">
+            <div class="inner">
+              <p>The Internets #1 Resource for Cat Stuffs...  According to Noone.</p>
+            </div>
+          </div>
+
         </div>
-        @endforeach
-  </div>
-</div>
-<!-- /.section-colored -->
-<hr>
-<br
-<div class="row">
-  {!! str_replace('/?', '?', $photos->render()) !!}
 
-
-</div>
-</div>
+      </div>
 <!-- /.section -->
 <script type="text/javascript">
   $(document).ready(function() {
