@@ -88,7 +88,7 @@
 
         methods:{
           fetchTaskList:function(){
-            var resource = this.$resource('api/coupons/:id');
+            var resource = this.$resource('api/posts');
             resource.get(function(tasks){
               this.list=tasks;
             }.bind(this));

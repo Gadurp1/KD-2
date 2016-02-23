@@ -5,6 +5,8 @@
 | Static Routes
 |--------------------------------------------------------------------------
 */
+Route::get('track', 'WebTrackController@index');
+
 // Sitemap
 Route::get('/sitemap', function()
 {
@@ -31,16 +33,13 @@ Route::get("theatre", function(){
 */
 //  Blog Routes
 Route::get('post', 'PostController@index');
+
 Route::get('admin/post', 'PostController@index');
 Route::get('Cat-Gifs', 'ImageController@index');
 Route::get('Cat-Gifs/{id}', 'ImageController@show');
-
-route:get('api/coupons', function()
+Route::get('api/posts', function()
 {
   $posts=\App\Post::where('status','publish')->latest()->get();
-  if(\Auth::user()){
-    $posts=\App\Post::latest()->get();
-  }
   return $posts;
 });
 Route::get('post/{slug}', 'PostController@show');

@@ -1,10 +1,15 @@
-@extends('app') @section('content')
+@include('partials.head')
 <style>
 /*
  * Globals
  */
 body{
-  background:#fafafa
+  background:#fafafa;
+  background: url(https://media.giphy.com/media/kJ04xPBmQp9Ti/giphy.gif) no-repeat center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
 }
 /* Links */
 a,
@@ -46,23 +51,50 @@ input.form-control[type="text"]:focus {
 /* Extra markup and styles for table-esque vertical and horizontal centering */
 .site-wrapper {
   display: table;
+  margin-top:-50px;
   width: 100%;
-  height: 100%; /* For at least Firefox */
+  background:rgba(0, 0, 0, 0.2);
+  height: 110%; /* For at least Firefox */
   min-height: 100%;
-  background: url(https://media.giphy.com/media/kJ04xPBmQp9Ti/giphy.gif) no-repeat center center fixed;
-    -webkit-background-size: cover;
-    -moz-background-size: cover;
-    -o-background-size: cover;
-    background-size: cover;
+
 
 }
 .site-wrapper-inner {
-margin-top:-100px;
   display: table-cell;
+  height: 100%;
   vertical-align: top;
   background:rgba(0, 0, 0, 0.8);
 
 }
+
+
+
+
+
+
+
+/*
+ * Globals
+ */
+
+/* Links */
+a,
+a:focus,
+a:hover {
+  color: #fff;
+}
+
+/* Custom default button */
+.btn-default,
+.btn-default:hover,
+.btn-default:focus {
+  color: #333;
+  text-shadow: none; /* Prevent inheritence from `body` */
+  background-color: #fff;
+  border: 1px solid #fff;
+}
+
+
 .cover-container {
   margin-right: auto;
   margin-left: auto;
@@ -70,8 +102,53 @@ margin-top:-100px;
 
 /* Padding for spacing */
 .inner {
-positiion:absolute;
-bottom:0;
+  padding: 30px;
+}
+
+
+/*
+ * Header
+ */
+.masthead-brand {
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+.masthead-nav > li {
+  display: inline-block;
+}
+.masthead-nav > li + li {
+  margin-left: 20px;
+}
+.masthead-nav > li > a {
+  padding-right: 0;
+  padding-left: 0;
+  font-size: 16px;
+  font-weight: bold;
+  color: #fff; /* IE8 proofing */
+  color: rgba(255,255,255,.75);
+  border-bottom: 2px solid transparent;
+}
+.masthead-nav > li > a:hover,
+.masthead-nav > li > a:focus {
+  background-color: transparent;
+  border-bottom-color: #a9a9a9;
+  border-bottom-color: rgba(255,255,255,.25);
+}
+.masthead-nav > .active > a,
+.masthead-nav > .active > a:hover,
+.masthead-nav > .active > a:focus {
+  color: #fff;
+  border-bottom-color: #fff;
+}
+
+@media (min-width: 768px) {
+  .masthead-brand {
+    float: left;
+  }
+  .masthead-nav {
+    float: right;
+  }
 }
 
 
@@ -79,7 +156,7 @@ bottom:0;
  * Cover
  */
 
-.cover {margin-top:-100px;
+.cover {
   padding: 0 20px;
 }
 .cover .btn-lg {
@@ -87,6 +164,15 @@ bottom:0;
   font-weight: bold;
 }
 
+
+/*
+ * Footer
+ */
+
+.mastfoot {
+  color: #999; /* IE8 proofing */
+  color: rgba(255,255,255,.5);
+}
 
 
 /*
@@ -133,6 +219,22 @@ h1{color:#fff;font-size:64px;font-weight:600;margin-bottom:10px}
 
       <div class="site-wrapper-inner">
         <div class="cover-container">
+          <div class="masthead clearfix">
+            <div class="inner">
+              <h3 class="masthead-brand">      <a class="" href="{{ url('')}}">
+
+                      <strong style="color:#fff;font-weight:800"><img style="height:25px" src="http://www.iconarchive.com/download/i78687/iconka/meow-2/cat-hungry.ico"></img> STASH</strong>
+                    </a></h3>
+              <nav>
+                <ul class="nav masthead-nav navbar-right">
+                  <li class=""><a href="{{ url('post')}}"><i class="fa fa-star" style="color:gold"></i> <strong>Featured</strong> </a></li>
+
+                  <li><a href="{{ url('Cat-Gifs')}}"><i class="fa fa-megaphone"></i> <strong>Gifs</strong></a></li>
+              </ul>
+
+              </nav>
+            </div>
+          </div>
             <div class="row">
               <div class="col-md-4">
 
@@ -154,8 +256,8 @@ h1{color:#fff;font-size:64px;font-weight:600;margin-bottom:10px}
           </div>
 
           <div class="mastfoot">
-            <div class="inner">
-              <p>The Internets #1 Resource for Cat Stuffs...  According to Noone.</p>
+            <div class="inner text-center">
+              <p style="color:#fff">The Internets #1 Resource for Cat Stuffs...  According to Noone.</p>
             </div>
           </div>
 
@@ -179,4 +281,3 @@ h1{color:#fff;font-size:64px;font-weight:600;margin-bottom:10px}
 
   });
 </script>
-@stop
