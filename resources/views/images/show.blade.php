@@ -22,7 +22,7 @@ background:url('http://www.europur.org/images/slideshow/europur_polyurethane_foa
       <div class="row ">
         <!-- Main Post Body -->
         <div class="col-sm-8">
-          <h1 itemprop="headline" style="font-size:24px;font-weight:400">{{$photo->description}}</h1>
+          <h1 itemprop="headline" style="font-size:24px;font-weight:400">{{$photo->name}}</h1>
         </div>
       </div>
       <div class="row">
@@ -45,7 +45,7 @@ background:url('http://www.europur.org/images/slideshow/europur_polyurethane_foa
         <div id="disqus_thread"></div>
         </div>
         @if(Auth::user())
-          <a class="btn btn-circle col-md-12 btn btn-danger btn-lg btn-right" href="{{url('admin/photo/'.$photo->id.'/edit') }}">
+          <a class="btn btn-circle col-md-12 btn btn-danger btn-lg btn-right" href="{{url('admin/photos/'.$photo->id.'/edit') }}">
           <i class="fa fa-edit" style="font-size:24px"></i>
           </a>
         @endif

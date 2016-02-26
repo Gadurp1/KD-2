@@ -69,12 +69,20 @@ class ImageController extends Controller
      */
     public function store(Request $request)
     {
+      $url = $request->input('url');
+      $title =$request->input('name');
+      $extension = pathinfo($url, PATHINFO_EXTENSION);
+      $filename = str_random(4).'-'.str_slug($title).'.'. $extension;
+      // get file content from url and save in directory
+      $file = file_get_contents($url);
+      $save_file = file_put_contents('uploads/'.$filename, $file);
+      // Create record in database
       // Create new banner instance
       $image=new Image;
       // Save banner
       $image->name=$request->input('name');
       $image->user_id=1;
-      $image->url=$request->input('url');
+      $image->url=$filename;
       $image->description=$request->input('description');
       $image->save();
       // Set Flash Message
@@ -104,7 +112,9 @@ class ImageController extends Controller
      */
     public function edit($id)
     {
-        //
+      $photo=Image::find($id);
+      return view('images.edit')
+          ->with('photo',$photo);
     }
 
     /**
@@ -116,7 +126,19 @@ class ImageController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+      $image = Image::find($id);
+      // Save banner
+      $image->id=$id;
+
+      $image->name=$request->input('name');
+      $image->user_id=1;
+      $image->url=$request->input('url');
+      $image->description=$request->input('description');
+      $image->save();
+      // Set Flash Message
+      session()->flash('flash_message','Photo Updated!');
+      // Redirect to new banner page
+      return redirect('admin/photos/'.$image->id.'');
     }
 
     /**
