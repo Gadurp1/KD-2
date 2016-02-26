@@ -1,8 +1,8 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="Certificate Clearing Corporation has been designing class action coupon settlements for more than 20 years and is the expert in creating coupons.">
+<meta name="description" content="Searching the world around for all Cat Gifs, Cat Memes, Cat Videos, and all other Cat Stuffs.">
 <meta name="author" content="">
-<title>Certificate Clearing Corporation</title>
+<title>#CatStash | The Internets #1 Resource for Cat Stuffs</title>
 <!-- font-awesome -->
 <link href="{{ asset('theme/css/font-awesome.min.css')}}" rel="stylesheet">
 <!--[if lt IE 9]>

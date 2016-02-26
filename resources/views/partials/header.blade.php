@@ -15,7 +15,7 @@
     <!-- Collect the nav links, forms, and other content for toggling -->
     <div class="collapse navbar-collapse navbar-ex1-collapse">
       <ul class="nav navbar-nav navbar-left">
-        <li class="active"><a href="{{ url('post')}}"><i class="fa fa-star" style="color:gold"></i> <strong>Featured</strong> </a></li>
+        <li class="hidden"><a href="{{ url('post')}}"><i class="fa fa-star" style="color:gold"></i> <strong>Featured</strong> </a></li>
 
         <li><a href="{{ url('Cat-Gifs')}}"><i class="fa fa-megaphone"></i> <strong>Gifs</strong></a></li>
     </ul>

@@ -39,7 +39,7 @@ Route::get('Cat-Gifs', 'ImageController@index');
 Route::get('Cat-Gifs/{id}', 'ImageController@show');
 Route::get('api/posts', function()
 {
-  $posts=\App\Post::where('status','publish')->latest()->get();
+  $posts=\App\Post::latest()->get();
   return $posts;
 });
 Route::get('post/{slug}', 'PostController@show');

@@ -63,7 +63,7 @@ input.form-control[type="text"]:focus {
   display: table-cell;
   height: 100%;
   vertical-align: top;
-  background:rgba(0, 0, 0, 0.8);
+  background:rgba(0, 0, 0, 0.7);
 
 }
 
@@ -221,15 +221,17 @@ h1{color:#fff;font-size:64px;font-weight:600;margin-bottom:10px}
         <div class="cover-container">
           <div class="masthead clearfix">
             <div class="inner">
-              <h3 class="masthead-brand">      <a class="" href="{{ url('')}}">
+              <h3 class="masthead-brand">
+                <a class="" href="{{ url('')}}">
 
                       <strong style="color:#fff;font-weight:800"><img style="height:25px" src="http://www.iconarchive.com/download/i78687/iconka/meow-2/cat-hungry.ico"></img> STASH</strong>
                     </a></h3>
               <nav>
                 <ul class="nav masthead-nav navbar-right">
-                  <li class=""><a href="{{ url('post')}}"><i class="fa fa-star" style="color:gold"></i> <strong>Featured</strong> </a></li>
+                  <li class="hidden"><a href="{{ url('post')}}"><i class="fa fa-star" style="color:gold"></i> <strong>Featured</strong> </a></li>
 
-                  <li><a href="{{ url('Cat-Gifs')}}"><i class="fa fa-megaphone"></i> <strong>Gifs</strong></a></li>
+                  <li><a href="{{ url('Cat-Gifs')}}"><i class="fa fa-star" style="color:gold"></i>
+                     <strong>Feed</strong></a></li>
               </ul>
 
               </nav>

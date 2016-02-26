@@ -76,8 +76,9 @@
         <div class="thumbnail">
           <div class="caption">
             <div class="caption-inner">
-              <p class="lead" style="margin-top:25px">{{$photo->description}}</p>
-              <a role="button" href="{{url('Cat-Gifs/'.$photo->id.'')}}" class="btn btn-danger">Details</a>
+              <a role="button" href="{{url('Cat-Gifs/'.$photo->id.'')}}" >
+                <p class="lead" style="margin-top:25px">{{$photo->description}}</p>
+              </a>
             </div>
           </div>
           <img style="height:175px;width:100%;border-radius:5px" src="{{asset('uploads/'.$photo->url.'')}}">
