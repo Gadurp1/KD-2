@@ -21,7 +21,7 @@
     top: 0;
     left: 0;
     bottom: 0;
-    background: rgba(0, 0, 0, 0.4);
+    background: rgba(0, 0, 0, 0.6);
     width: 100%;
     height: 100%;
     color: #fff !important;
@@ -62,14 +62,39 @@
     margin-bottom: 0px!important;
     background: #fdf;
   }
+
+  input.form-control{
+    height:75px;
+    -webkit-box-shadow:  0 2px 3px rgba(0,0,0,.3);
+    box-shadow:  0 2px 3px rgba(0,0,0,.3);
+  }
+
+  input.form-control[type="text"] {
+    display: block;
+    margin: 0;
+    width: 100%;
+    font-weight: 900;
+    font-size: 18px;
+    appearance: none;
+    border-radius: none;
+  }
+  input.form-control[type="text"]:focus {
+    outline: none;
+    border:none;
+    -webkit-box-shadow:  0 2px 3px rgba(0,0,0,.3);
+    box-shadow:  0 2px 3px rgba(0,0,0,.3);
+  }
+  .btn-huge{
+    padding-top:15px;padding-bottom:15px;font-size:18px
+  }
 </style>
 
 <div class="section section-big">
   <div class="container">
 
 <div class="row">
-  <div class="scroller">
-
+  <div >
+    @if(count($photos) > 0)
     @foreach($photos as $photo)
     <div id="hover-cap-4col">
       <div class="col-md-4 small">
@@ -77,7 +102,7 @@
           <div class="caption">
             <div class="caption-inner">
               <a role="button" href="{{url('Cat-Gifs/'.$photo->id.'')}}" >
-                <p class="lead" style="margin-top:25px">{{$photo->description}}</p>
+                <p class="lead" style="margin-top:25px;color:#fff">{{$photo->name}}</p>
               </a>
             </div>
           </div>
@@ -85,7 +110,27 @@
         </div>
     </div>
     @endforeach
-  </div>  </div>
+    @else
+    <div class="well">
+      <div class="col-md-4">
+
+      </div>
+      <img src="http://i.imgur.com/VQRjaXL.png" class="col-md-4" alt="" />
+      <div class="col-md-4">
+
+      </div>
+      <div class=" row">
+        <!-- <div id="summernote">Hello Summernote</div> -->
+        {!! Form::open(['method' => 'GET','url' => 'Cat-Gifs','class' => 'search-bar']) !!}
+          <div class="form-group">
+            {!! Form::text('name', null, ['class' => 'form-control','placeholder' => 'Try again... I guess...']) !!}
+          </div>
+          {!!Form::close()!!}
+    </div>
+    </div>
+    @endif
+  </div>
+</div>
 </div>
 </div>
 </div>

@@ -37,6 +37,8 @@ Route::get('post', 'PostController@index');
 Route::get('admin/post', 'PostController@index');
 Route::get('Cat-Gifs', 'ImageController@index');
 Route::get('Cat-Gifs/{id}', 'ImageController@show');
+Route::get('Cat-Gifs/{id}/embed', 'ImageController@embed');
+
 Route::get('api/posts', function()
 {
   $posts=\App\Post::latest()->get();

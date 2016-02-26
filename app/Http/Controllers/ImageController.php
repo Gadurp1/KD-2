@@ -38,27 +38,16 @@ class ImageController extends Controller
         return view('images.create');
     }
     /**
-     * Show the form for creating a new resource.
+     * Display the specified resource.
      *
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function scrape()
+    public function embed($id)
     {
-      for($i=2;$i<=3;$i++){
-        //$photos=Image::paginate(50);
-        $client = new Client();
-        $baseURL = 'http://www.cat-gifs.com/page';
-        $urlEndpoint = '/'.$i++;
-        $crawler = $client->request('GET', $baseURL . $urlEndpoint);
-        $photos = $crawler->filter('img.size-full')->extract(array('src','title','alt'));
-          foreach($photos as $photo){
-            $image=new \App\Image();
-            $image->name=$photo[1];
-            $image->url=$photo[0];
-            $image->description=$photo[2];
-            $images->save();
-         }
-      }
+      $photo=Image::find($id);
+      return view('images.embed')
+          ->with('photo',$photo);
     }
 
     /**

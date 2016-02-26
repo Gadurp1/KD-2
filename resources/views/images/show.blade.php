@@ -58,18 +58,10 @@ background:url('http://www.europur.org/images/slideshow/europur_polyurethane_foa
       <!-- Recent Posts Sidebar -->
         <div class="col-md-4" >
           <div class="panel panel-body">
-            <p class="lead"><i class="fa fa-share"></i> Share This Image</p>
+            <p class="lead"><i class="fa fa-share"></i> Embed This Image</p>
             <div class="input-group">
               <span class="input-group-addon"></span>
-              <input type="text" class="form-control" placeholder="" value="{{$photo->url}}">
-            </div>
-            <div class="input-group">
-              <span class="input-group-addon"></span>
-              <input type="text" class="form-control" placeholder="" value="{{$photo->url}}">
-            </div>
-            <div class="input-group">
-              <span class="input-group-addon"></span>
-              <input type="text" class="form-control" placeholder="" value="{{$photo->url}}">
+              <input type="text" class="form-control" placeholder="" value='<iframe src="http://localhost:8888/KD-2/public/Cat-Gifs/500/embed" style"height:100%;width:100%;overflow:0" frameborder="0"></iframe>'>
             </div>
         </div>
     </div>
